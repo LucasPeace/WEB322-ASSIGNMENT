@@ -1,15 +1,28 @@
 /********************************************************************************
-*  WEB322 – Assignment 03
-* 
-*  I declare that this assignment is my own work in accordance with Seneca's
-*  Academic Integrity Policy:
-* 
-*  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
-* 
-*  Name: _____Peace Gbadamosi Adedeji_____ Student ID: ____158664219__________ Date: _______2023-10-23_______
-*
-********************************************************************************/
 
+* WEB322 – Assignment 03
+
+*
+
+* I declare that this assignment is my own work in accordance with Seneca's
+
+* Academic Integrity Policy:
+
+*
+
+* https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
+
+*
+
+* Name: ______________PEACE GBADAMOSI ADEDEJI________ Student ID: _____158664219_________ Date: _______2023-10-29_______
+
+*
+
+* Published URL: https://fair-red-hare-fez.cyclic.app
+
+*
+
+********************************************************************************/
 
 
 const legoData = require("./modules/legoSets");
