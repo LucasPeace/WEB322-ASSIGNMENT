@@ -33,6 +33,8 @@ const app = express()
 
 const HTTP_PORT = 8080
 app.use(express.static('public'));
+
+
 app.get("/", (req, res) => {
   const aboutFilePath = path.join(__dirname, "views", "index.html");
   const notFoundFilePath = path.join(__dirname, "views", "404.html");
