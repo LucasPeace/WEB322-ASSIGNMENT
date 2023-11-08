@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   daisyui: {
-    themes: ["night"],
+    themes: ["retro"],
   },
-    content: ['./views/index.html'],
+    content: ['./views/index.ejs'
+  ,
+'./views/partials/navbar.ejs',
+'./views/sets.ejs',
+'./views/set.ejs'],
     theme: {
       extend: {},
     },

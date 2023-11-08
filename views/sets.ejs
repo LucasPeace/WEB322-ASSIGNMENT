@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body style = "text-align: center;">
+    <%- include('partials/navbar') %>
+    <% sets.forEach(user=>{%>
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <img class="w-full" src=<%=user.img_url%> alt="Sunset in the mountains">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"></div>
+          <p class="text-gray-700 text-base">
+            <%=user.name%>
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%=user.year%></span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><%=user.num_parts%></span>
+          <a href = "/lego/sets/<%=user.set_num%>" button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Details
+          </button></a>
+        </div>
+        
+      </div>
+      <%})%>
+</body>
+</html>

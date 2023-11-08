@@ -23,48 +23,53 @@
 *
 
 ********************************************************************************/
-
-
 const legoData = require("./modules/legoSets");
-const path = require("path")
-const express = require("express")
+ 
+const path = require("path");
 const fs = require("fs");
+const express = require("express")
 const app = express()
 
 const HTTP_PORT = 8080
 app.use(express.static('public'));
-
-
+app.set('view engine', 'ejs');
+ 
+ 
 app.get("/", (req, res) => {
-  const aboutFilePath = path.join(__dirname, "views", "index.html");
-  const notFoundFilePath = path.join(__dirname, "views", "404.html");
+  const aboutFilePath = path.join(__dirname, "views", "index.ejs");
+  const notFoundFilePath = path.join(__dirname, "views", "404");
 
  
   fs.access(aboutFilePath, fs.constants.F_OK, (err) => {
     if (!err) {
        
-      res.sendFile(aboutFilePath);
+      res.render(aboutFilePath);
     } else {
        
       res.status(404).sendFile(notFoundFilePath);
     }
   });
 });
-app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "/views/about.html"))
 
-
+ app.get("/about", (req, res) => {
+  res.render("about");
+    
 })
+ 
+
+ 
 
 
-
+ 
 app.get("/lego/sets/:setNumber", async (req, res) => {
   try {
-    const setNumValue = req.params.setNumber;
+    const setNumValue = req.params.setNumber; // Extract set number from URL
     const result = await legoData.getSetByNum(setNumValue);
 
     if (result) {
-      res.json(result);
+     // res.json(result);
+
+      res.render("set", { set: result });
     } else {
       res.status(404).send("Set not found");
     }
@@ -75,27 +80,29 @@ app.get("/lego/sets/:setNumber", async (req, res) => {
 });
 
  
+ 
+
 app.get("/lego/sets", async (req, res) => {
   try {
-    const theme = req.query.theme;
-
+    const theme = req.query.theme; // Extract the "theme" query parameter
+ 
     if (theme) {
-  
       const filteredSets = await legoData.getSetsByTheme(theme);
 
       if (filteredSets.length > 0) {
-        res.json(filteredSets);
+        // Render the 'sets.ejs' template and pass the data to it
+        res.render("sets", { sets: filteredSets });
       } else {
         res.status(404).send("No sets found for the specified theme");
       }
     } else {
-      
       const allSets = await legoData.getAllSets();
-      res.json(allSets);
+      // Render the 'sets.ejs' template and pass the data to it
+      res.render("sets", { sets: allSets });
     }
   } catch (error) {
     console.error("Error while retrieving Lego sets:", error);
-    res.status(404).send("An error occurred while retrieving Lego sets.");
+    res.status(500).send("An error occurred while retrieving Lego sets.");
   }
 });
 
