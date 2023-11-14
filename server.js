@@ -14,7 +14,7 @@
 
 *
 
-* Name: ______________PEACE GBADAMOSI ADEDEJI________ Student ID: _____158664219_________ Date: _______2023-10-29_______
+* Name: ______________PEACE GBADAMOSI ADEDEJI________ Student ID: _____158664219_________ Date: _______2023-11-13_______
 
 *
 
@@ -71,11 +71,11 @@ app.get("/lego/sets/:setNumber", async (req, res) => {
 
       res.render("set", { set: result });
     } else {
-      res.status(404).send("Set not found");
+      res.status(404).render("404",{message:"I'm sorry, we are unable to find what you are looking for"});
     }
   } catch (error) {
     console.error("Error while retrieving Lego set by ID:", error);
-    res.status(404).send("Set not found");
+    res.status(404).render("404",{message:"I'm sorry, we are unable to find what you are looking for"});
   }
 });
 
@@ -93,7 +93,7 @@ app.get("/lego/sets", async (req, res) => {
         // Render the 'sets.ejs' template and pass the data to it
         res.render("sets", { sets: filteredSets });
       } else {
-        res.status(404).send("No sets found for the specified theme");
+        res.status(404).render("404",{message:"I'm sorry, we are unable to find what you are looking for"});
       }
     } else {
       const allSets = await legoData.getAllSets();
@@ -102,7 +102,7 @@ app.get("/lego/sets", async (req, res) => {
     }
   } catch (error) {
     console.error("Error while retrieving Lego sets:", error);
-    res.status(500).send("An error occurred while retrieving Lego sets.");
+    res.status(404).render("404",{message:"I'm sorry, we are unable to find what you are looking for"});
   }
 });
 

@@ -7,7 +7,9 @@ module.exports = {
   ,
 './views/partials/navbar.ejs',
 './views/sets.ejs',
-'./views/set.ejs'],
+'./views/set.ejs',
+'./views/about.ejs',
+'./views/404.ejs'],
     theme: {
       extend: {},
     },
