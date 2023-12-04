@@ -1,21 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  daisyui: {
-    themes: ["retro"],
-  },
-    content: ['./views/index.ejs'
-  ,
+  content: ['./views/index.ejs',
+ './views/about.ejs',
+ './views/technic.ejs',
+ './views/401.ejs',
+ './views/500.ejs',
+ './views/sets.ejs',
+ './views/set.ejs',
+ './views/addSet.ejs',
+ './views/editSet.ejs',
 './views/partials/navbar.ejs',
-'./views/sets.ejs',
-'./views/set.ejs',
-'./views/about.ejs',
-'./views/404.ejs'],
-    theme: {
-      extend: {},
-    },
-   
-   plugins: [require('@tailwindcss/typography'), require('daisyui')],
-   
-  }
-  
-  
+],
+daisyui:{themes: ["garden"]},
+
+theme: {
+  extend: {},
+},
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+ 
+}
+

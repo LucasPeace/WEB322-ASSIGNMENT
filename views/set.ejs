@@ -2,32 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/main.css">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css" />
+   
+  
 </head>
 <body>
-
-    <%- include('partials/navbar') %>
-    <div class="max-w-sm w-full lg:max-w-full lg:flex">
-        <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url(<%=set.img_url%>)" title="Woman holding a mug">
-        </div>
-        <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-          <div class="mb-8">
-            
-            <div class="text-gray-900 font-bold text-xl mb-2"><%=set.name%></div>
-            <p class="text-gray-700 text-base"><%=set.year%></p>
-          </div>
-          <div class="flex items-center">
-            <img class="w-10 h-10 rounded-full mr-4" src=<%=set.img_url%> alt="Avatar of Jonathan Reinink">
-            <div class="text-sm">
-              <p class="text-gray-900 leading-none">Jonathan Reinink</p>
-              <p class="text-gray-600">Aug 18</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href = "/lego/sets"><button class="btn btn-accent">Go Back</button></a>
+  <%- include('partials/navbar') %>
+ 
+  
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       
+        <div>
+          <img class="w-full rounded-lg" src= <%= set.img_url %> alt=" Set Image">
+  
+        </div><div class="prose">
+  
+         <p>
+          <span class="font-bold">Set Name: </span><%= set.name %> <br>
+          <span class="font-bold">Year Released: </span>  <%= set.year %> <br>
+          <span class="font-bold">Theme: </span>  <%= set.theme_id %> <br>
+          <span class="font-bold">Number of Parts: </span> <%= set.num_parts %> <br><br>
+  
+                  <a href ="/lego/editSet/<%= set.set_num %>" class="btn btn-warning btn-sm">EDIT SET</a>
+
+            <a href ="/lego/deleteSet/<%= set.set_num %>" class="btn btn-danger btn-sm" >DELETE SET</a>
+                  <a href=" /lego/deleteSet/<%= set.set_num %>"  class="btn btn-success btn-sm" href="#" onclick="history.back(); return false;">RETURN</a>
+         </p>
+  
+        </div>
+  
+      </div>
 </body>
+
 </html>
