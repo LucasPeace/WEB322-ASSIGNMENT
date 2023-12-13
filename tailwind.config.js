@@ -9,9 +9,10 @@ module.exports = {
  './views/set.ejs',
  './views/addSet.ejs',
  './views/editSet.ejs',
+ './views/register.ejs',
 './views/partials/navbar.ejs',
 ],
-daisyui:{themes: ["garden"]},
+daisyui:{themes: ["dark"]},
 
 theme: {
   extend: {},

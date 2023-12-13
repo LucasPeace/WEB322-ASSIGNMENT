@@ -53,7 +53,7 @@ Set.belongsTo(Theme, {foreignKey: 'theme_id'})
 function initialize() {
   return new Promise((resolve, reject) => {
      sequelize.sync().then(()=>{
-     console.log("connected to DB")
+     console.log("connected to DB, postgre")
      resolve()
      }).catch((err)=>{
       resolve(err)
@@ -63,7 +63,7 @@ function initialize() {
 }
  
  
-  initialize();
+ // initialize();
  
   function getAllSets() {
     return new Promise((resolve, reject) => {
